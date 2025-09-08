@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Portfolio Design System - Dark Theme with Neon Green Accents */
+
+@layer base {
+  :root {
+    /* Light Theme Colors */
+    --background: 0 0% 100%;         /* Pure white */
+    --foreground: 0 0% 3.9%;        /* Almost black */
+    
+    /* Text Colors */
+    --text-primary: 0 0% 10.2%;     /* Black #1A1A1A */
+    --text-secondary: 0 0% 45%;     /* Mid-gray */
+    
+    /* Pure Red Accent System */
+    --neon: 0 85% 55%;              /* Pure red #DC2626 */
+    --neon-glow: 0 85% 55%;         /* Same as neon for glow effects */
+    --neon-muted: 0 60% 40%;        /* Muted red for subtle uses */
+    
+    /* Component Colors */
+    --card: 0 0% 98%;               /* Very light gray for cards */
+    --card-foreground: 0 0% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    
+    --primary: 0 85% 55%;           /* Pure red as primary */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 0 0% 96.1%;        /* Light secondary */
+    --secondary-foreground: 0 0% 9%;
+    
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    
+    --accent: 0 85% 55%;            /* Pure red accent */
+    --accent-foreground: 0 0% 9%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 85% 55%;              /* Pure red for focus rings */
+    
+    /* Premium Design Tokens - Light */
+    --gradient-neon: linear-gradient(135deg, hsl(0 85% 55%) 0%, hsl(0 75% 50%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 98%) 0%, hsl(0 0% 94%) 100%);
+    
+    /* Shadows & Glows - Light */
+    --shadow-glow: 0 0 30px hsl(0 85% 55% / 0.4);
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 10px 40px -5px hsl(0 0% 0% / 0.15);
+    
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Theme Colors */
+    --background: 0 0% 6.3%;        /* Dark charcoal #0F0F10 */
+    --foreground: 0 0% 96.1%;       /* Off-white #F5F5F5 */
+    
+    /* Text Colors */
+    --text-primary: 0 0% 96.1%;     /* Light text for dark mode */
+    --text-secondary: 0 0% 65%;     /* Light gray */
+    
+    /* Component Colors */
+    --card: 0 0% 8%;                /* Slightly lighter than bg for cards */
+    --card-foreground: 0 0% 96.1%;
+    
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 96.1%;
+    
+    --primary-foreground: 0 0% 6.3%;
+    
+    --secondary: 0 0% 12%;          /* Dark secondary */
+    --secondary-foreground: 0 0% 96.1%;
+    
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent-foreground: 0 0% 6.3%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    
+    /* Premium Design Tokens - Dark */
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 6.3%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
+    
+    /* Shadows & Glows - Dark */
+    --shadow-card: 0 10px 30px -5px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 20px 60px -10px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body overflow-x-hidden;
+  }
+
+  /* Custom Cursor */
+  * {
+    cursor: none;
+  }
+  
+  .cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--neon));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .cursor-trail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--neon) / 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+  }
+}
+
+@layer components {
+  /* Typography Classes */
+  .text-display {
+    @apply font-display text-foreground;
+  }
+  
+  .text-body {
+    @apply font-body text-foreground;
+  }
+  
+  .text-script {
+    @apply font-script text-[hsl(var(--neon))];
+  }
+  
+  /* Neon Glow Effects */
+  .neon-glow {
+    text-shadow: 0 0 10px hsl(var(--neon) / 0.5);
+  }
+  
+  .neon-border {
+    border: 1px solid hsl(var(--neon));
+    box-shadow: 0 0 10px hsl(var(--neon) / 0.3);
+  }
+  
+  /* Gradient Backgrounds */
+  .bg-gradient-neon {
+    background: var(--gradient-neon);
+  }
+  
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  
+  .animate-text-reveal {
+    animation: textReveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-[var(--shadow-elevated)];
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    @apply scale-105;
+  }
+}
+
+/* Keyframes for Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(0 85% 55% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(0 85% 55% / 0.6);
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 10px hsl(var(--neon)), 0 0 20px hsl(var(--neon)), 0 0 30px hsl(var(--neon));
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
